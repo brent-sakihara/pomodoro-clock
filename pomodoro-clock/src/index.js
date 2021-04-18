@@ -1,3 +1,7 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import "./style.css";
+
 let count = 0;
 let minutes = 0;
 class Pomodoro extends React.Component{
@@ -64,7 +68,7 @@ class Pomodoro extends React.Component{
   }
   
   displayMinutes(){
-   if (this.state.clock == "A"){
+   if (this.state.clock === "A"){
      if(this.state.session - minutes >= 10){
        return this.state.session - minutes;
      }
@@ -79,7 +83,7 @@ class Pomodoro extends React.Component{
   }
   
   displayLabel(){
-    if(this.state.clock == "A"){
+    if(this.state.clock === "A"){
       return "Session";
     }
     return "Break";
@@ -87,7 +91,7 @@ class Pomodoro extends React.Component{
  
   runStop(){
     count++;
-    if(count % 2 == 1){
+    if(count % 2 === 1){
       this.run();
     }
     else{
@@ -112,7 +116,7 @@ class Pomodoro extends React.Component{
         else{
           minutes = 0;
           this.beep();
-          if(this.state.clock == "A"){
+          if(this.state.clock === "A"){
             this.setState({
               clock: "B",
               seconds: 0
@@ -153,7 +157,7 @@ reset(){
   
   switch(stateTo){
     minutes = 0;
-    if (stateTo == "A"){
+    if (stateTo === "A"){
       this.setState({
         clock: "A",
         seconds: 0
